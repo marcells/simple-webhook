@@ -11,10 +11,10 @@ app.get('/:hook/:token', function(req, res) {
     return;
   }
 
-  exec('~/script.sh', function(error, stdout, stderr) {
+  exec(hook.scriptFile, function(error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
-    
+
     if (error !== null) {
       console.log('exec error: ' + error);
     }
